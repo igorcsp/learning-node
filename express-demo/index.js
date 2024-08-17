@@ -88,15 +88,6 @@ app.delete('/api/courses/:id', (req, res) => {
 })
 
 
-
-
-
-
-
-
-
-
-
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening on port ${port}...`))
 // para configurar a variável de ambiente no CLI > `export PORT=5000` no BASH e `set PORT=5000` no windowns
