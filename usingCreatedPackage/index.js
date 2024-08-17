@@ -1,0 +1,5 @@
+var operations = require('random-name-test-package-igu')
+var resultSum = operations.add(1, 2)
+var resultMultiply = operations.multiply(2, 2)
+console.log(resultSum)
+console.log(resultMultiply)
