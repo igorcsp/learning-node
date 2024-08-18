@@ -1,9 +1,38 @@
-const express = require('express')
-const Joi = require('joi')
+const debug = require('debug')('app:startup')
 
+// const startupDebugger = require('debug')('app:startup')
+// const dbDebugger = require('debug')('app:db')
+// to enable use `export DEBUG=app:startup,app:db` ou `export DEBUG=app:*`, to disable `export DEBUG=`
+// nice shortcut example > `export DEBUG=app:db nodemon index.js`
+
+// const config = require('config')
+const express = require('express')
 const app = express()
+const Joi = require('joi')
+// const logger = require('./logger')
+const helmet = require('express')
+const morgan = require('morgan')
+
+// Configuration
+// console.log('Aplication Name: ' + config.get('name'))
+// console.log('Mail Server: ' + config.get('mail.host'))
+// console.log('Mail Password: ' + config.get('mail.password'))
 
 app.use(express.json())
+// app.use(express.urlencoded({ extended: true }))
+// app.use(express.static('public'))
+app.use(helmet()); // Helps secure your apps by setting various HTTP headers.
+
+if (app.get('env') === 'development') {
+    app.use(morgan('tiny')); // HTTP request logger.
+    // startupDebugger('Morgan enabled...')
+    debug('Morgan enabled...')
+}
+
+//DB work...
+// dbDebugger('Connectted to the database...')
+
+// app.use(logger.log)
 
 function validateCourse(course) {
     const schema = Joi.object({
