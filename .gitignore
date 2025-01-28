@@ -1,0 +1,26 @@
+# Ignorar todas as pastas node_modules
+**/node_modules/
+
+# Ignorar todas as pastas de log
+**/log/
+
+# Ignorar todas as pastas de coverage
+**/coverage/
+
+# Ignorar arquivos de log específicos (opcional)
+*.log
+
+# Ignorar arquivos de ambiente (opcional)
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignorar arquivos de configuração local (opcional)
+*.local
+
+# Ignorar diretórios de IDE (opcional)
+.idea/
+.vscode/
+
